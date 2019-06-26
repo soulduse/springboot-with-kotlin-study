@@ -8,7 +8,7 @@
 # 목표
 - 간단한 서비스 하나는 우습게 만들기
 - 인프런 강의 3개 결제 해놓은것 완강 및 이해하기
-- [스프링부트 책](https://book.naver.com/bookdb/book_detail.nhn?bid=14031681) 하나 구매한것 완독하
+- [스프링부트 책](https://book.naver.com/bookdnb/book_detail.nhn?bid=14031681) 하나 구매한것 완독하
 
 # 각오한마디 & 하고싶은말
 - 이번이 Hello World 10번째 찍는 레포이지 않길
