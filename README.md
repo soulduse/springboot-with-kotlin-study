@@ -14,3 +14,6 @@
 - 이번이 Hello World 10번째 찍는 레포이지 않길
 - 스프링스터디 레포는 이제 그만만들자
 - 이제는 Java보다 Kotlin이 익숙하니 Kotlin으로 간다
+
+# 내용정리
+- [1 DAY](./study/day-1.md)
