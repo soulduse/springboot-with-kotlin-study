@@ -14,8 +14,12 @@
 - 이번이 Hello World 10번째 찍는 레포이지 않길
 - 스프링스터디 레포는 이제 그만만들자
 - 이제는 Java보다 Kotlin이 익숙하니 Kotlin으로 간다
+- 욕심부리다가 금방지쳐서 포기하지말기 작은 학습이라도 조금씩 전진할 것
+- 단순히 수동적으로 따라치지 않고 원리를 이해하려고 노력하고, 어떤 생각들이 들었는지 배웠는지 간략하게 적기
 
 # 내용정리
-- [1 DAY](./study/day-1.md)
-- [2 DAY](./study/day-2.md)
-- [3 DAY](./study/day-3.md)
+- [1 DAY](./study/day-1.md) Application.properties
+- [2 DAY](./study/day-2.md) 독립적으로 실행 가능한 JAR
+- [3 DAY](./study/day-3.md) 자동 환경 설정 이해
+- [4 DAY](./study/day-4.md) @SprigBootTest
+- [5 DAY](./study/day-5.md) @WebMvcTest
