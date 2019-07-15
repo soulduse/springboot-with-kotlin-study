@@ -3,7 +3,7 @@ package com.dave.springbootstudy.domain
 import java.time.LocalDateTime
 
 data class Book(
-		private val idxField: Int,
+		private val idxField: Int = 0,
 		private val titleField: String,
 		private val publishedAtField: LocalDateTime
 ) {
