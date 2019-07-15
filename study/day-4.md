@@ -51,8 +51,6 @@ class SpringbootstudyApplicationTests {
 
 	@Test
 	fun contextLoads() {
-		println(value)
-//		println(propertyValue)
 	}
 }
 ```
@@ -88,3 +86,15 @@ private String value;
 @Value("\${value}")
 private lateinit var value: String
 ```
+
+```text
+- value : 테스트가 실행되기 전에 적용할 프로퍼티 추가가능
+- properties : 테스트가 실행되기 전에 {key=value} 형식으로 프로퍼티 추가 가능
+- classes 애플리케이션 컨텍스트에 로드할 클래스를 지정할 수 있음. (따로 지정하지 않을시 @SpringBootConfiguration을 찾아서 로드함.
+- webEnvironment : 애플리이션 웹 환경 설정 
+```
+
+# 궁금했던 것 과 알게된 것
+@SprigBootTest 에 대해서 간략하게 파보는 시간이었다. 각종 프로퍼티들은 어떤 경우 사용하게 되고 유용할까? 단순히 상수가 필요한 경우이거나, 프로퍼티에 설정을 가져올때나 사용하게 될까? 의문이 들었다.
+> 찾아보니 SpringBoot는 기본적으로 클래스 경로상에 (application.properties, application.yml)를 통해서 애플리케이션 설정을 수행하는데, 테스트에는 기존 설정과 달라질 필요가 있는 경우가 많다고 한다.
+이럴때 사용하면 괜찮을 것 같다.
