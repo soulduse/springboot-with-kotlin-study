@@ -29,8 +29,8 @@ class BookControllerTest {
 	@Test
 	fun `Book MVC Test`() {
 		val book = Book(
-				titleField = "Spring Boot Book",
-				publishedAtField = LocalDateTime.now()
+				title = "Spring Boot Book",
+				publishedAt = LocalDateTime.now()
 		)
 		given(bookService.getBookList()).willReturn(arrayListOf(book))
 		mvc.perform(get("/books"))

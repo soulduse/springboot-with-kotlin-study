@@ -32,3 +32,4 @@
 - [3 DAY](./study/day-3.md) 자동 환경 설정 이해
 - [4 DAY](./study/day-4.md) @SprigBootTest
 - [5 DAY](./study/day-5.md) @WebMvcTest
+- [6 DAY](./study/day-6.md) @DataJpaTest
