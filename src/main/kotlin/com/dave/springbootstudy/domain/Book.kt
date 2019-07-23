@@ -19,7 +19,7 @@ data class BookB(
 @Table
 class Book(
 		title: String,
-		publishedAt: LocalDateTime
+		publishedAt: LocalDateTime?
 ) {
 	@Id
 	@GeneratedValue
@@ -29,7 +29,7 @@ class Book(
 	var title: String = title
 		private set
 	@Column
-	var publishedAt: LocalDateTime = publishedAt
+	var publishedAt: LocalDateTime? = publishedAt
 		private set
 
 	override fun toString(): String {

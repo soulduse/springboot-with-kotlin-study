@@ -33,3 +33,4 @@
 - [4 DAY](./study/day-4.md) @SprigBootTest
 - [5 DAY](./study/day-5.md) @WebMvcTest
 - [6 DAY](./study/day-6.md) @DataJpaTest
+- [7 DAY](./study/day-7.md) @RestClientTest
