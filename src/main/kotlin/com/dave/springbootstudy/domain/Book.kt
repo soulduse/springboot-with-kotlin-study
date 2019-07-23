@@ -19,7 +19,7 @@ data class BookB(
 @Table
 class Book(
 		title: String,
-		publishedAt: LocalDateTime?
+		publishedAt: LocalDateTime?= null
 ) {
 	@Id
 	@GeneratedValue
