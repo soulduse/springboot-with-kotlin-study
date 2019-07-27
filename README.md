@@ -34,3 +34,4 @@
 - [5 DAY](./study/day-5.md) @WebMvcTest
 - [6 DAY](./study/day-6.md) @DataJpaTest
 - [7 DAY](./study/day-7.md) @RestClientTest, @JsonTest
+- [8 DAY](./study/day-8.md) 스프링부트 웹
