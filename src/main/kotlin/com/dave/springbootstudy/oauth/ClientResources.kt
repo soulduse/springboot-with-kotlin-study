@@ -15,7 +15,7 @@ import org.springframework.security.oauth2.client.token.grant.code.Authorization
  * ResourceServerProperties
  * ㄴ> OAuth2 리소스값을 매핑하는데 사용하지만, 회원정보를 얻는 userInfoUri 값을 받는데 사용됨.
  */
-data class ClientResource(
+data class ClientResources(
 	@NestedConfigurationProperty
 	val client: AuthorizationCodeResourceDetails = AuthorizationCodeResourceDetails(),
 	@NestedConfigurationProperty
