@@ -49,7 +49,6 @@ class User(
 
 		if (idx != other.idx) return false
 		if (name != other.name) return false
-		if (password != other.password) return false
 		if (email != other.email) return false
 		if (principal != other.principal) return false
 		if (socialType != other.socialType) return false
@@ -62,7 +61,6 @@ class User(
 	override fun hashCode(): Int {
 		var result = idx.hashCode()
 		result = 31 * result + name.hashCode()
-		result = 31 * result + password.hashCode()
 		result = 31 * result + email.hashCode()
 		result = 31 * result + principal.hashCode()
 		result = 31 * result + socialType.hashCode()
@@ -72,6 +70,6 @@ class User(
 	}
 
 	override fun toString(): String {
-		return "User(idx=$idx, name='$name', password='$password', email='$email', principal='$principal', socialType=$socialType, updatedAt=$updatedAt, createdAt=$createdAt)"
+		return "User(idx=$idx, name='$name', email='$email', principal='$principal', socialType=$socialType, updatedAt=$updatedAt, createdAt=$createdAt)"
 	}
 }

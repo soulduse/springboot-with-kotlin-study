@@ -3,10 +3,7 @@ package com.dave.springbootstudy.resolver
 import com.dave.springbootstudy.annotation.SocialUser
 import com.dave.springbootstudy.domain.User
 import com.dave.springbootstudy.domain.enums.SocialType
-import com.dave.springbootstudy.domain.enums.SocialType.FACEBOOK
-import com.dave.springbootstudy.domain.enums.SocialType.GOOGLE
-import com.dave.springbootstudy.domain.enums.SocialType.KAKAO
-import com.dave.springbootstudy.domain.enums.SocialType.NAVER
+import com.dave.springbootstudy.domain.enums.SocialType.*
 import com.dave.springbootstudy.repository.UserRepository
 import org.springframework.core.MethodParameter
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -21,7 +18,6 @@ import org.springframework.web.context.request.RequestContextHolder
 import org.springframework.web.context.request.ServletRequestAttributes
 import org.springframework.web.method.support.HandlerMethodArgumentResolver
 import org.springframework.web.method.support.ModelAndViewContainer
-import java.time.Instant
 import javax.servlet.http.HttpSession
 
 @Component
@@ -46,7 +42,11 @@ class UserArgumentResolver(private val userRepository: UserRepository): HandlerM
 		return getUser(user, session)
 	}
 
-	private fun getUser(user: User?, session: HttpSession?): Any? {
+	/**
+	 * 인증된 User 객체를 만드는 메서드
+	 */
+	private fun getUser(user: User?, session: HttpSession?): User? {
+		var user: User?= user
 		if (user == null) {
 			try {
 				val authentication = SecurityContextHolder.getContext().authentication as OAuth2Authentication
@@ -55,11 +55,20 @@ class UserArgumentResolver(private val userRepository: UserRepository): HandlerM
 				val convertUser = convertUser(authentication.authorities.toTypedArray().first().toString(), map)
 
 				user = userRepository.findByEmail(convertUser!!.email)
-				
+				if (user == null) { user = userRepository.save(convertUser) }
+
+				setRoleIfNotSame(user!!, authentication, map)
+				session?.setAttribute("user", user)
+			} catch (e: ClassCastException) {
+				return user
 			}
 		}
+		return user
 	}
 
+	/**
+	 * 사용자의 인증된 소셜 미디어 타입에 따라 user 객체를 만들어주는 역할
+	 */
 	private fun convertUser(authority: String, map: Map<String, String>): User? {
 		return when(authority) {
 			FACEBOOK.name -> getModernUser(FACEBOOK, map)
@@ -80,7 +89,7 @@ class UserArgumentResolver(private val userRepository: UserRepository): HandlerM
 	}
 
 	private fun getKakaoUser(map: Map<String, String>): User {
-		val propertyMap = map["properties"] as (Any) as Map<String, String>
+		val propertyMap = map["properties"] as (Any) as Map<String, String> // TODO 잘될까?
 		return User(
 			name = propertyMap["nickname"]!!,
 			email = map["kaccount_email"]!!,
@@ -89,6 +98,9 @@ class UserArgumentResolver(private val userRepository: UserRepository): HandlerM
 		)
 	}
 
+	/**
+	 * 권한을 가지고 있는지 체크하는 용도로 쓰인다. 만약 저장된 User 권한이 없다면 SecurityContextHolder를 사용하여 해당 소셜 미디어 타입으로 저장한다.
+	 */
 	private fun setRoleIfNotSame(
 		user: User,
 		authentication: OAuth2Authentication,

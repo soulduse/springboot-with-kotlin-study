@@ -1,6 +1,6 @@
 package com.dave.springbootstudy.controller
 
-import com.dave.springbootstudy.service.BoardService
+//import com.dave.springbootstudy.service.BoardService
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.stereotype.Controller
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 
+/*
 @Controller
 @RequestMapping("/board") // API URL 경로를 '/board'로 정의
 class BoardController(
@@ -38,3 +39,4 @@ class BoardController(
 		return "/board/list" // src/resource/template를 기준으로 데이터 바인딩할 타깃뷰 경로 지정
 	}
 }
+*/
