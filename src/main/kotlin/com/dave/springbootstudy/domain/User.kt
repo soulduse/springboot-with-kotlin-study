@@ -10,12 +10,9 @@ import javax.persistence.*
 @Table
 class User(
 	name: String,
-	password: String,
 	email: String,
 	principal: String,
-	socialType: SocialType,
-	updatedAt: Instant,
-	createdAt: Instant
+	socialType: SocialType
 ) {
 	@Id
 	@Column
@@ -24,9 +21,6 @@ class User(
 		private set
 
 	var name: String = name
-		private set
-
-	var password: String = password
 		private set
 
 	var email: String = email
@@ -40,11 +34,11 @@ class User(
 		private set
 
 	@CreatedDate
-	var updatedAt: Instant = updatedAt
+	var updatedAt: Instant = Instant.now()
 		private set
 
 	@LastModifiedDate
-	var createdAt: Instant = createdAt
+	var createdAt: Instant = Instant.now()
 		private set
 
 	override fun equals(other: Any?): Boolean {
