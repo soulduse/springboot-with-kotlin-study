@@ -40,4 +40,8 @@ class User(
 		this.picture = picture
 		return this
 	}
+
+	override fun toString(): String {
+		return "User(id=$id, name='$name', email='$email', picture='$picture', role=$role)"
+	}
 }

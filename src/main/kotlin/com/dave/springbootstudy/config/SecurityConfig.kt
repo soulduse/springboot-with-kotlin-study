@@ -23,7 +23,7 @@ class SecurityConfig(
 				// URL, HTTP 메소드별로 관리가 가능
 				// "/"등 지정된 URL들은 permitAll() 옵셩을 통해 전체 열람 권한을 줬음.
 				// POST 메소드이면서 "api/v1/**" 주소를 가진 API는 USER 권한을 가진 사람만 가능하도록 함.
-				.antMatchers("/", "/css/**", "/images/**", "/js/**", "h2-console/**")
+				.antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**")
 				.permitAll()
 				.antMatchers("/api/v1/**").hasRole(Role.USER.name)
 				// 설정된 값들 이외 나머지 URL들을 나타냄

@@ -1,8 +1,9 @@
 spring:
   h2:
     console:
-      path: /h2-test
-
+      enabled: true
+  profiles:
+    include: oauth
 # --------------------- SNS Login ---------------------
 # Facebook, Google, Kakao, Naver
 facebook:
