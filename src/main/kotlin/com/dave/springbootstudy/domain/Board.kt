@@ -8,78 +8,22 @@ import javax.persistence.*
 
 @Entity
 @Table
-class Board(
-	title: String,
-	subTitle: String,
-	content: String,
-	boardType: BoardType,
-	createdAt: Instant,
-	updatedAt: Instant,
-	user: User
-) {
-
+data class Board(
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	var idx: Long = 0
-		private set
+	private var idx: Long = 0,
 
-	var title: String = title
-		private set
+	var title: String,
 
-	var subTitle: String = subTitle
-		private set
+	var subTitle: String,
 
-	var content: String = content
-		private set
+	var content: String,
 
 	@Enumerated(EnumType.STRING)
-	var boardType: BoardType = boardType
-		private set
-
-	@CreatedDate
-	var createdAt: Instant = createdAt
-		private set
-
-	@LastModifiedDate
-	var updatedAt: Instant = updatedAt
-		private set
+	var boardType: BoardType,
 
 	@OneToOne(fetch = FetchType.LAZY)
-	var user: User = user
-		private set
+	var user: User
+)
 
-	override fun equals(other: Any?): Boolean {
-		if (this === other) return true
-		if (javaClass != other?.javaClass) return false
-
-		other as Board
-
-		if (idx != other.idx) return false
-		if (title != other.title) return false
-		if (subTitle != other.subTitle) return false
-		if (content != other.content) return false
-		if (boardType != other.boardType) return false
-		if (createdAt != other.createdAt) return false
-		if (updatedAt != other.updatedAt) return false
-		if (user != other.user) return false
-
-		return true
-	}
-
-	override fun hashCode(): Int {
-		var result = idx.hashCode()
-		result = 31 * result + title.hashCode()
-		result = 31 * result + subTitle.hashCode()
-		result = 31 * result + content.hashCode()
-		result = 31 * result + boardType.hashCode()
-		result = 31 * result + createdAt.hashCode()
-		result = 31 * result + updatedAt.hashCode()
-		result = 31 * result + user.hashCode()
-		return result
-	}
-
-	override fun toString(): String {
-		return "Board(idx=$idx, title='$title', subTitle='$subTitle', content='$content', boardType=$boardType, createdAt=$createdAt, updatedAt=$updatedAt, user=$user)"
-	}
-}

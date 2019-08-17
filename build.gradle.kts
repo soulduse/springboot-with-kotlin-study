@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 plugins {
 	kotlin("plugin.jpa") version "1.3.31"
-	id("org.springframework.boot") version "1.5.14.RELEASE"
+	id("org.springframework.boot") version "2.1.7.RELEASE"
 	id("io.spring.dependency-management") version "1.0.7.RELEASE"
 	id("org.jetbrains.kotlin.kapt") version "1.3.31"
 	kotlin("jvm") version "1.3.31"
@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.security.oauth:spring-security-oauth2")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
