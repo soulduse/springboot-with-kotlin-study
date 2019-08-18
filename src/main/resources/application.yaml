@@ -4,44 +4,47 @@ spring:
       enabled: true
   profiles:
     include: oauth
+  session:
+    store-type: jdbc
+
 # --------------------- SNS Login ---------------------
 # Facebook, Google, Kakao, Naver
-facebook:
-  client:
-    clientId: 481485359089197
-    clientSecret: 412fba6e625dcb092f092fb50a2e8086
-    accessTokenUri: https://graph.facebook.com/oauth/access_token
-    userAuthorizationUri: https://www.facebook.com/dialog/oauth?display=popup
-    tokenName: oauth_token
-    authenticationScheme: query
-    clientAuthenticationScheme: form
-    scope: email
-  resource:
-    userInfoUri: https://graph.facebook.com/me?fields=id,name,email,link
-
-google:
-  client:
-    clientId: 354236654955-ivnba0pee9si02v8rnk0tac1mineh2lu.apps.googleusercontent.com
-    clientSecret: WKpwSHoR39Nl-x6ts51M8m_Q
-    accessTokenUri: https://accounts.google.com/o/oauth2/token
-    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
-    scope: email, profile
-  resource:
-    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
-
-kakao:
-  client:
-    clientId: 97f9910d01a11e1938c51ea546172b4f
-    accessTokenUri: https://kauth.kakao.com/oauth/token
-    userAuthorizationUri: https://kauth.kakao.com/oauth/authorize
-  resource:
-    userInfoUri: https://kapi.kakao.com/v2/user/me
-
-naver:
-  client:
-    clientId: F3l6Yw5NnG9c0N2A0TPP
-    clientSecret: aefhsVVnPw
-    accessTokenUri: https://nid.naver.com/oauth2.0/token
-    userAuthorizationUri: https://nid.naver.com/oauth2.0/authorize
-  resource:
-    userInfoUri: https://openapi.naver.com/v1/nid/me
+#facebook:
+#  client:
+#    clientId: 481485359089197
+#    clientSecret: 412fba6e625dcb092f092fb50a2e8086
+#    accessTokenUri: https://graph.facebook.com/oauth/access_token
+#    userAuthorizationUri: https://www.facebook.com/dialog/oauth?display=popup
+#    tokenName: oauth_token
+#    authenticationScheme: query
+#    clientAuthenticationScheme: form
+#    scope: email
+#  resource:
+#    userInfoUri: https://graph.facebook.com/me?fields=id,name,email,link
+#
+#google:
+#  client:
+#    clientId: 354236654955-ivnba0pee9si02v8rnk0tac1mineh2lu.apps.googleusercontent.com
+#    clientSecret: WKpwSHoR39Nl-x6ts51M8m_Q
+#    accessTokenUri: https://accounts.google.com/o/oauth2/token
+#    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+#    scope: email, profile
+#  resource:
+#    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
+#
+#kakao:
+#  client:
+#    clientId: 97f9910d01a11e1938c51ea546172b4f
+#    accessTokenUri: https://kauth.kakao.com/oauth/token
+#    userAuthorizationUri: https://kauth.kakao.com/oauth/authorize
+#  resource:
+#    userInfoUri: https://kapi.kakao.com/v2/user/me
+#
+#naver:
+#  client:
+#    clientId: F3l6Yw5NnG9c0N2A0TPP
+#    clientSecret: aefhsVVnPw
+#    accessTokenUri: https://nid.naver.com/oauth2.0/token
+#    userAuthorizationUri: https://nid.naver.com/oauth2.0/authorize
+#  resource:
+#    userInfoUri: https://openapi.naver.com/v1/nid/me

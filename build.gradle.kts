@@ -24,6 +24,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0")
 	implementation("org.springframework.boot:spring-boot-configuration-processor")
+	implementation("org.springframework.session:spring-session-jdbc")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
