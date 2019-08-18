@@ -26,7 +26,7 @@ class LoginUserArgumentResolver(
 	 */
 	override fun supportsParameter(parameter: MethodParameter): Boolean {
 		val isLoginUserAnnotation = parameter.getParameterAnnotation(LoginUser::class.java) != null
-		val isUserClass = SessionUser::class == parameter.parameterType
+		val isUserClass = SessionUser::class.java == parameter.parameterType
 		return isLoginUserAnnotation && isUserClass
 	}
 

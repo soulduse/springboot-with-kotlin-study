@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class IndexController {
 	@GetMapping("/")
-	fun index(model: Model, @LoginUser user: SessionUser): String {
+	fun index(model: Model, @LoginUser user: SessionUser?): String {
 		user?.let { model.addAttribute("userName", user.name) }
 		println("user data is $user")
 		return "index"
