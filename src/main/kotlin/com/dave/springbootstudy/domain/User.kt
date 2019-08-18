@@ -15,18 +15,14 @@ class User(
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	var id: Long = id
 		private set
-
 	@Column(nullable = false)
 	var name: String = name
 		private set
-
-	@Column(nullable = false, name = "email")
+	@Column(nullable = false)
 	var email: String = email
 		private set
-
 	var picture: String = picture
 		private set
-
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	var role: Role = role
@@ -39,9 +35,5 @@ class User(
 		this.name = name
 		this.picture = picture
 		return this
-	}
-
-	override fun toString(): String {
-		return "User(id=$id, name='$name', email='$email', picture='$picture', role=$role)"
 	}
 }

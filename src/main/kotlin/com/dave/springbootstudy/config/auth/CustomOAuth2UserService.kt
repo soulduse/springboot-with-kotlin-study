@@ -1,4 +1,4 @@
-package com.dave.springbootstudy.oauth
+package com.dave.springbootstudy.config.auth
 
 import com.dave.springbootstudy.config.auth.dto.OAuthAttributes
 import com.dave.springbootstudy.config.auth.dto.SessionUser
