@@ -1,6 +1,7 @@
 package com.dave.springbootstudy
 
 import com.dave.springbootstudy.domain.Board
+import com.dave.springbootstudy.domain.Role
 import com.dave.springbootstudy.domain.User
 import com.dave.springbootstudy.domain.enums.BoardType
 import com.dave.springbootstudy.repository.BoardRepository
@@ -19,6 +20,8 @@ import java.time.Instant
 class JpaMappingTest {
 	private val boardTestTitle = "테스트"
 	private val email = "test@gmail.com"
+	private val picture = "test.jpg"
+	private val role = Role.GUEST
 
 	@Autowired
 	lateinit var userRepository: UserRepository
@@ -31,10 +34,9 @@ class JpaMappingTest {
 		val user = userRepository.save(
 			User(
 				name = "Dave",
-				password = "test",
 				email = email,
-				createdAt = Instant.now(),
-				updatedAt = Instant.now()
+				picture = "test.jpg",
+				role = Role.GUEST
 			)
 		)
 
@@ -44,8 +46,6 @@ class JpaMappingTest {
 				subTitle = "서브 타이틀",
 				content = "콘텐츠",
 				boardType = BoardType.FREE,
-				createdAt = Instant.now(),
-				updatedAt = Instant.now(),
 				user = user
 			)
 		)
@@ -53,10 +53,11 @@ class JpaMappingTest {
 
 	@Test
 	fun `제대로 생성 되었나`() {
-		val user = userRepository.findByEmail(email)
+		val user = userRepository.findByEmail(email)!!
 		assertThat(user.name).isEqualTo("Dave")
-		assertThat(user.password).isEqualTo("test")
 		assertThat(user.email).isEqualTo(email)
+		assertThat(user.picture).isEqualTo(picture)
+		assertThat(user.role).isEqualTo(role)
 
 		val board = boardRepository.findByUser(user)
 		assertThat(board.title).isEqualTo(boardTestTitle)

@@ -1,4 +1,4 @@
-# 8일차
+# 9~10일차
 ----
 
 ## 스프링부트 시큐리티 + OAuth2
@@ -26,7 +26,6 @@
 
 
 #### 스프링부트 시큐리티 + OAuth2 설계
-- 
 
 #### 스프링부트 시큐리티 + OAuth2 의존성
 
@@ -35,3 +34,20 @@
 #### 스프링부트 시큐리티 + OAuth2 설정
 
 ## 궁금했던 것 과 알게된 것
+### Security
+- SecurityConfig 설정은 꽤나 복잡하구나.
+- WebSecurityConfigurerAdapter를 상속받아서 Security관련 작업을 할 수 있다.
+- @EnableWebSecurity 어노테이션을 사용하면 Spring Security 설정을 활성화 할 수 있다.
+- 시큐리티에서 권한과 제한을 다 줄 수 있구나
+- 로그인/로그아웃에는 빠질수 없는 설정이라는 생각.
+
+### OAuth2UserService
+registrationId, userNameAttributeName등 기본적으로 2.0 시큐리티에서 OAuth2를 사용하기위해
+많은 유틸성 클래스들을 준비해두었구나라는 생각. 기본적으로 제공해주는 OAuth도 꽤 되었다. (Google, Github, Facebook, Okata)
+
+### yaml
+아래 두개를 헷갈리지 말자.
+등록을 하기위한 옵션
+- spring.security.oauth2.client.registration.xxx
+제공을 위한 옵션(?)
+- spring.security.oauth2.client.provider.xxx

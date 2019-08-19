@@ -5,7 +5,6 @@ import javax.persistence.*
 
 @Entity
 class User(
-	id: Long = 0,
 	name: String,
 	email: String,
 	picture: String,
@@ -13,7 +12,7 @@ class User(
 ): BaseTimeEntity() {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	var id: Long = id
+	var id: Long = 0
 		private set
 	@Column(nullable = false)
 	var name: String = name
